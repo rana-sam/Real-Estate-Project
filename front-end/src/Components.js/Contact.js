@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Contact() {
+
   return (
     <div>
        <div >
@@ -37,7 +38,7 @@ export default function Contact() {
                                 <input className='bg-slate-200 px-2 w-200 h-10 my-2 rounded-lg flex justify-center pr-20 pb-10 pt-10 items-center text-white text-lg' type="text" name="message" id="" placeholder="Enter our Message"/>
                                 </div>
                           </div>
-                                     <center><button className='bg-violet-700 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg'>Submit</button></center>
+                                     <center><button   className='bg-violet-700 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg'>Submit</button></center>
                       </form>
                   </div>
     </div>

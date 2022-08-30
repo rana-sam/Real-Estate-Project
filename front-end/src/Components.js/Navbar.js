@@ -19,7 +19,7 @@
          <ul className='menu'>
              <Link to='/'><li><a href='#' className='active'>Home</a></li></Link>
              <Link to='/add'><li><a href='../Files/Add.js' className='active'>Add</a></li></Link>
-             <Link to='/contact'><li><a href='' className='active'>contact</a></li></Link>
+             {/* <Link to='/contact'><li><a href='' className='active'>contact</a></li></Link> */}
              <Link to='/login'><li><a href='' className='active'>Log In</a></li></Link>
              <Link to='/register'><li><a href='' className='active'>Sign Up</a></li></Link>
              

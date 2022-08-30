@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../App.css"
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -27,8 +28,18 @@ export default function Signup() {
         phone,
       };
       try {
-        await axios.post(`http://localhost:5000/register`, data);
-        console.log("new registerd");
+
+        const response=await axios.post(`http://localhost:5000/register`, data);
+       
+       if (response.status === 402) {
+        toast.error("Email Already Register")
+       }
+       else if (response.status===400) {
+        toast.error("InValid Details")
+       }
+       else{
+        toast.success("Sucessfully Sign Up")
+       }
       } catch (e) {
         console.log(e);
       }
@@ -36,14 +47,14 @@ export default function Signup() {
   };
 
   return (
-    <div>
+    <div className="login bg-gradient-to-r from-teal-200 to-lime-200 ">
       <ToastContainer />
       <div>
-        <h1 className="text-blue-600 text-center">Sign Up</h1>
+        <h1 className="pt-4 text-blue-600 text-center text-5xl font-bold mb-10">Sign Up</h1>
       </div>
 
       <div>
-        <form className="grid justify-center" method="post" onSubmit={SignUp}>
+        <form className="grid justify-center " method="post" onSubmit={SignUp}>
           <div>
             <div>
               <input
@@ -101,7 +112,7 @@ export default function Signup() {
             </div>
           </div>
           <center>
-            <button className="bg-violet-700 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg">
+            <button className="mt-7 bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg">
               Submit
             </button>
           </center>

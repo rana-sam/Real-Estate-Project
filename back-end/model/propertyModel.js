@@ -6,31 +6,12 @@ const Schema = mongoose.Schema;
 //Create Schema
 
 const PropertySchema = new  Schema({
-    propertytitle: {
-        type: String,
-        required: true
-    },
-    for: {
-        type: String,
-        required: true
-    },
-    bedrooms: {
+  
+    beds: {
         type: String,
         required: true
     },
     bathrooms: {
-        type: String,
-        required: true
-    },
-    garage: {
-        type: Boolean,
-        required: true
-    },
-    lounge: {
-        type: Boolean,
-        required: true
-    },
-    description: {
         type: String,
         required: true
     },
@@ -42,15 +23,7 @@ const PropertySchema = new  Schema({
         type: String,
         required: true
     },
-    priceUnit:{
-        type: String,
-        required: true
-    },
     area:{
-        type: String,
-        required: true
-    },
-    areaUnit:{
         type: String,
         required: true
     },
@@ -58,15 +31,15 @@ const PropertySchema = new  Schema({
         type: String,
         required: true
     },
-    email:{
-        type: String,
-        required: true
-    },
     address:{
         type: String,
         required: true
     },
-    city:{
+    country:{
+        type: String,
+        required: true
+    },
+    catagery:{
         type: String,
         required: true
     },
@@ -81,11 +54,8 @@ const PropertySchema = new  Schema({
             required: false
         }
     },
-    date: {
-        type: Date,
-        default: Date.now
-    }
+
 
 });
 
-module.exports = Users = mongoose.model('properties', PropertySchema);
+module.exports = Property = mongoose.model('Property', PropertySchema);

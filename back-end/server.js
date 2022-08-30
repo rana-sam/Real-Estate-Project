@@ -1,5 +1,5 @@
 const express =require("express");
-require("../backend/db");
+require("../back-end/db");
  const User=require("./model/userModel")
 const app=express();
 const http=require("http")
