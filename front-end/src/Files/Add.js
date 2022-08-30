@@ -55,7 +55,7 @@ const Add = (e) => {
       class="min-h-[180px] bg-gradient-to-br from-green-400 to-blue-600"
       method="post"
     >
-      <ToastContainer/>
+      <ToastContainer position="top-center"/>
       <div class="flex justify-center items-center w-full mb-10">
         <label  onChange={(e) => setimage(e.target.value)}
           for="dropzone-file"
