@@ -1,40 +1,42 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-const saltRounds = 10;
-const passport = require("passport");
 const cors = require('cors');
-const LocalStrategy = require('passport-local').Strategy;
 const User = require('./model/userModel');
 const Property = require('./model/propertyModel');
 module.exports= User;
 module.exports= Property;
 router.use(cors());
-router.get('/', (req, res) => {
-    User.find()
-        .then(users => res.json(users));
+
+
+router.get('/post', (req, res) => {
+    Property.find()
+        .then(Property => res.json(Property));
+});
+router.get('/home', (req, res) => {
+      res.status(200).send("home page")
 });
 
 router.post("/register", async (req, res) => {
     const { fname,lname,phone, email, password } = req.body;
     try { 
         const preuser = await User.findOne({ email: email })
-        if (preuser) {
-            res.status(402).send("User Already Registered")
-        }
-        else {
+        if (!preuser) {
             const finalUser = new User({
                 fname,lname,phone, email, password,
             });
             const storedata = await finalUser.save();
             res.status(200).send("successfully Sign Up");
+        }
+        else {
+            res.status(202).send("User Already Registered")
+           
          
        }
            
 
     }
     catch (error) {
-        res.status(400).json({msg:"Invalid Details"})
+        res.status(201).send(error)
     }
 
 });
@@ -44,20 +46,26 @@ router.post("/register", async (req, res) => {
 router.post('/login',async(req, res) =>{
     const {email,password}=req.body;
     const preuser = await User.findOne({ email: email })
-        if (preuser) {
+    if (preuser) { 
+        try { 
             if (password===preuser.password) {
-                res.status(200).send("successfully Login")
-                
+                res.status(200).send("sucessfully login")
             }
             else{
-                console.log("incorect email or password");
+                res.status(202).send("invalid email or password")
             }
+            
+        } 
+        catch (error) {
+            console.log(error);
         }
-        else{
-            console.log("no user found");
+    }
+    else{
+            res.status(202).send("invalid email or password")
         }
         
 });
+
 router.post('/add',async(req,res)=>{
     const{
         image,

@@ -1,19 +1,26 @@
 import React ,{ useState } from "react";
 import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 import "../App.css"
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Poster from "../Components.js/Poster";
-import HouseList from "../Components.js/HouseList";
 
 const Login = () => 
 {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
+
+const Render=()=>{
+       
+}
+  
+
+
+
   const logIn=async(e)=>{
     e.preventDefault();
-    
+    // const Navigate = useNavigate();
     if (!email)  {
         toast.error("Please Provide Email");
       }
@@ -26,11 +33,17 @@ const Login = () =>
           email
         };
         try {
-         const response= await axios.post(`http://localhost:5000/login`, data);
-          if (response.status===200) {
+          const response= await axios.post(`http://localhost:5000/login`, data);
+          console.log(response.status);
+         if (response.status===200) {
             toast.success("Successfully login")
+            // Navigate("./Home.js")
+
           }
-         console.log("login");
+        else if (response.status===202) {
+            toast.error("Incorrect Email Or Password")
+           
+          }
         } 
         catch (e) {
           console.log(e);
@@ -38,6 +51,7 @@ const Login = () =>
       }
     
   }
+ 
   return (
     <div className="login pt-10 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200">
       <ToastContainer position="top-center"/>
@@ -53,7 +67,7 @@ const Login = () =>
               <input
                 type="email"
                 name="email"
-                id=""
+                id="email"
                 className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-white text-lg"
                 placeholder="Email ID"
                 onChange={(e) => setEmail(e.target.value)}
@@ -65,7 +79,7 @@ const Login = () =>
               <input
                 type="password"
                 name="password"
-                id=""
+                id="password"
                 className="bg-slate-200 px-2 w-200 pr-20 h-10 my-2 rounded-lg flex justify-center items-center text-white text-lg"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -75,9 +89,10 @@ const Login = () =>
           
           
           <center>
-            <button  className="bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg">
+            <button onClick={Render} className="bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg">
               Log In
             </button>
+            
           </center>
         </form>
       </div>

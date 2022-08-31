@@ -33,9 +33,10 @@ import Agent10 from './images/agents/agent10.jpg';
 import Agent11 from './images/agents/agent11.webp';
 import Agent12 from './images/agents/agent12.jpg';
 
+
+
+
 export const RenthouseData = [
-  
-  
   
   {
     id: 5,

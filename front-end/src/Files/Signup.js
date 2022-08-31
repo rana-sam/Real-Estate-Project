@@ -31,10 +31,10 @@ export default function Signup() {
 
         const response=await axios.post(`http://localhost:5000/register`, data);
        
-       if (response.status === 402) {
+       if (response.status === 202) {
         toast.error("Email Already Register")
        }
-       else if (response.status===400) {
+       else if (response.status===201) {
         toast.error("InValid Details")
        }
        else{

@@ -33,8 +33,9 @@ const Add = (e) => {
       } 
       try {
         const response=await axios.post(`http://localhost:5000/add`, propertyDetail);
-      if (response.status===200) {
-        toast.success("Successfully Stored")
+        if (response.status===200) {
+          toast.success("Successfully Stored")
+          
       }
       else if (response.status===400) {
         toast.error("Failed To stored")
@@ -57,7 +58,7 @@ const Add = (e) => {
     >
       <ToastContainer position="top-center"/>
       <div class="flex justify-center items-center w-full mb-10">
-        <label  onChange={(e) => setimage(e.target.value)}
+        <label  
           for="dropzone-file"
           class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
         >
@@ -110,7 +111,7 @@ const Add = (e) => {
               for="country-option-1"
               class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
-              House
+              House 
             </label>
             <input
             onChange={(e) => setcatagery(e.target.value)}
@@ -130,14 +131,14 @@ const Add = (e) => {
           <div></div>
           <div>
             <label
-              for="first_name"
+              for="country"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Country
             </label>
             <input
               type="text"
-              id="first_name"
+              id="country"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Model Town,Humak,Islamabad"
               required=""
@@ -146,14 +147,14 @@ const Add = (e) => {
           </div>
           <div>
             <label
-              for="last_name"
+              for="address"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Address
             </label>
             <input
               type="text"
-              id="last_name"
+              id="address"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Model Town,Humak,Islamabad"
               required=""
@@ -162,46 +163,46 @@ const Add = (e) => {
           </div>
           <div>
             <label
-              for="company"
+              for="beds"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Number Of Bed's
             </label>
             <input
               type="text"
-              id="company"
+              id="beds"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="123"
+              placeholder="##"
               required=""
               onChange={(e) => setbeds(e.target.value)}
             />
           </div>
           <div>
             <label
-              for="phone"
+              for="bathrooms"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Bathroom's
             </label>
             <input
               type="tel"
-              id="phone"
+              id="bathrooms"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="123"
+              placeholder="##"
               required=""
               onChange={(e) => setbathrooms(e.target.value)}
             />
           </div>
           <div>
             <label
-              for="website"
+              for="area"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Area Of House
             </label>
             <input
               type="url"
-              id="website"
+              id="area"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="0000 sq ft"
               required=""
@@ -210,14 +211,14 @@ const Add = (e) => {
           </div>
           <div>
             <label
-              for="visitors"
+              for="price"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Price
             </label>
             <input
               type="number"
-              id="visitors"
+              id="price"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="$000.0"
               required=""
@@ -226,23 +227,22 @@ const Add = (e) => {
           </div>
           <div>
             <label
-              for="visitors"
+              for="contact"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Contact
             </label>
             <input
               type="number"
-              id="visitors"
+              id="contact"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="$000.0"
+              placeholder="phone#"
               required=""
               onChange={(e) => setcontact(e.target.value)}
             />
           </div>
-          {/* <div className="text-center"></div> */}
           <button onClick={AddProperty}
-            type="button"
+            type="submit"
             class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           >
             Submit
