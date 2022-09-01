@@ -4,10 +4,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Add = (e) => {
   const [image, setimage] = useState("");
-  const [catagery, setcatagery] = useState("");
+  const [type, settype] = useState("");
   const [country, setcountry] = useState("");
   const [address, setaddress] = useState("");
-  const [beds, setbeds] = useState("");
+  const [bedrooms, setbedrooms] = useState("");
   const [bathrooms, setbathrooms] = useState("");
   const [area, setarea] = useState(Number);
   const [price, setprice] = useState(Number);
@@ -15,17 +15,18 @@ const Add = (e) => {
 
 
   const AddProperty = async (e) => {
+   
     e.preventDefault();
-    if (!image || !catagery || !country || !address || !beds || !bathrooms || !area || !price || !contact) {
+    if (!image || !type || !country || !address || !bedrooms || !bathrooms || !area || !price || !contact) {
       toast.error("Please Provide All Value");
     }
     else{
       const propertyDetail={
         image,
-        catagery,
+        type,
         country,
         address,
-        beds,
+        bedrooms,
         bathrooms,
         area,
         price,
@@ -35,7 +36,8 @@ const Add = (e) => {
         const response=await axios.post(`http://localhost:5000/add`, propertyDetail);
         if (response.status===200) {
           toast.success("Successfully Stored")
-          
+   
+  
       }
       else if (response.status===400) {
         toast.error("Failed To stored")
@@ -47,7 +49,15 @@ const Add = (e) => {
       }
     }
 
-
+    settype("")
+    setbedrooms("")
+    setbathrooms("")
+    setprice(0)
+    setarea(0)
+    setcontact(0)
+    setcountry("")
+    setaddress("")
+    setimage("")
 
 
   };
@@ -99,30 +109,30 @@ const Add = (e) => {
 
           <div class="flex items-center mb-4">
             <input
-              id="country-option-1"
+              id="type-option-1"
               type="radio"
-              name="catagery"
+              name="type"
               value="House"
               class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
-              onChange={(e) => setcatagery(e.target.value)}
+              onChange={(e) => settype(e.target.value)}
 
             />
             <label
-              for="country-option-1"
+              for="type-option-1"
               class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               House 
             </label>
             <input
-            onChange={(e) => setcatagery(e.target.value)}
-              id="country-option-2"
+            onChange={(e) => settype(e.target.value)}
+              id="type-option-2"
               type="radio"
-              name="catagery"
+              name="type"
               value="apartment"
               class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600 ml-5"
             />
             <label
-              for="country-option-2"
+              for="type-option-2"
               class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Appartment
@@ -174,7 +184,7 @@ const Add = (e) => {
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="##"
               required=""
-              onChange={(e) => setbeds(e.target.value)}
+              onChange={(e) => setbedrooms(e.target.value)}
             />
           </div>
           <div>
@@ -201,7 +211,7 @@ const Add = (e) => {
               Area Of House
             </label>
             <input
-              type="url"
+              type="number"
               id="area"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="0000 sq ft"

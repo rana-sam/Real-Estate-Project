@@ -69,10 +69,10 @@ router.post('/login',async(req, res) =>{
 router.post('/add',async(req,res)=>{
     const{
         image,
-        catagery,
+        type,
         country,
         address,
-        beds,
+        bedrooms,
         bathrooms,
         area,
         price,
@@ -82,10 +82,10 @@ router.post('/add',async(req,res)=>{
       try {
         const finalproperty = new Property({
             image,
-            catagery,
+            type,
             country,
             address,
-            beds,
+            bedrooms,
             bathrooms,
             area,
             price,

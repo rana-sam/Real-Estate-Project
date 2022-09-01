@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 
 const PropertySchema = new  Schema({
   
-    beds: {
+    bedrooms: {
         type: String,
         required: true
     },
@@ -39,22 +39,10 @@ const PropertySchema = new  Schema({
         type: String,
         required: true
     },
-    catagery:{
+    type:{
         type: String,
         required: true
-    },
-    location: {
-        type: {
-            type: String,
-            enum: ['Point'],
-            required: false
-        },
-        coordinates: {
-            type: [Number],
-            required: false
-        }
-    },
-
+    }
 
 });
 
