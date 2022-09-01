@@ -51,7 +51,7 @@ const Login = () =>
   }
  
   return (
-    <div className="login pt-10 ">
+    <div className="login pt-10 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 rounded-lg">
       <ToastContainer position="top-center"/>
       <div>
         <h1 className="text-blue-600 text-center text-5xl font-bold mb-10"> Log In</h1>

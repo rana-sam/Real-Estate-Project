@@ -6,7 +6,7 @@ import HouseList from '../Components.js/HouseList';
 
 const Home = () => {
   return (
-    <div className='min-h-[1000px]'>
+    <div className='min-h-[1000px] '>
       <Poster/>
       <HouseList />
     </div>
