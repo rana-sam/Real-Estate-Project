@@ -11,9 +11,7 @@ const Login = () =>
   const [email, setEmail] = useState("");
 
 
-const Render=()=>{
-       
-}
+
   
 
 
@@ -53,7 +51,7 @@ const Render=()=>{
   }
  
   return (
-    <div className="login pt-10 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200">
+    <div className="login pt-10 ">
       <ToastContainer position="top-center"/>
       <div>
         <h1 className="text-blue-600 text-center text-5xl font-bold mb-10"> Log In</h1>
@@ -68,7 +66,7 @@ const Render=()=>{
                 type="email"
                 name="email"
                 id="email"
-                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-white text-lg"
+                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-black text-lg"
                 placeholder="Email ID"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -89,7 +87,7 @@ const Render=()=>{
           
           
           <center>
-            <button onClick={Render} className="bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg">
+            <button  className="bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg">
               Log In
             </button>
             

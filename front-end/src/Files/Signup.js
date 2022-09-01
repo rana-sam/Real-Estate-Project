@@ -47,7 +47,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="login bg-gradient-to-r from-teal-200 to-lime-200 ">
+    <div className="login bg-cyan-200">
       <ToastContainer position="top-center"/>
       <div>
         <h1 className="pt-4 text-blue-600 text-center text-5xl font-bold mb-10">Sign Up</h1>
@@ -61,7 +61,7 @@ export default function Signup() {
                 type="text"
                 name="fname"
                 id=""
-                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-white text-lg"
+                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-black text-lg"
                 placeholder="First Name"
                 onChange={(e) => setFname(e.target.value)}
               />
@@ -71,29 +71,20 @@ export default function Signup() {
                 type="text"
                 name="lname"
                 id=""
-                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-white text-lg"
+                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-black text-lg"
                 placeholder="Last Name"
                 onChange={(e) => setLname(e.target.value)}
               />
             </div>
           </div>
           <div>
-            <div>
-              <input
-                type="number"
-                name="phone"
-                id=""
-                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-white text-lg"
-                placeholder="Phone Number"
-                onChange={(e) => setPhone(e.target.value)}
-              />
-            </div>
+            
             <div>
               <input
                 type="email"
                 name="email"
                 id=""
-                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-white text-lg"
+                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-black text-lg"
                 placeholder="Email ID"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -105,15 +96,25 @@ export default function Signup() {
                 type="password"
                 name="password"
                 id=""
-                className="bg-slate-200 px-2 w-200 pr-20 h-10 my-2 rounded-lg flex justify-center items-center text-white text-lg"
+                className="bg-slate-200 px-2 w-200 pr-20 h-10 my-2 rounded-lg flex justify-center items-center text-black text-lg"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div>
+              <input
+                type="string"
+                name="phone"
+                id=""
+                className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-black text-lg"
+                placeholder="Phone Number"
+                onChange={(e) => setPhone(parseInt(e.target.value))}
               />
             </div>
           </div>
           <center>
             <button className="mt-7 bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg">
-              Submit
+              SignUp
             </button>
           </center>
         </form>

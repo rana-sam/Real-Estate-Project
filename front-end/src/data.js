@@ -37,7 +37,6 @@ import Agent12 from './images/agents/agent12.jpg';
 
 
 export const RenthouseData = [
-  
   {
     id: 5,
     type: 'House',
@@ -67,7 +66,7 @@ export const RenthouseData = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
     image: Apartment1,
     country: 'pakistan',
-    address: 'ferozpur road near camp jail',
+    address: 'ferozpur road Lahore',
     bedrooms: '2',
     bathrooms: '1',
     surface: '1200 sq ft',
