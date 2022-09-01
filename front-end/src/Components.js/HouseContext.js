@@ -1,14 +1,21 @@
 import React, { createContext, useState, useEffect } from 'react';
+import axios from "axios";
 
 
-import { RenthouseData } from '../data';
+
+// import { RenthouseData } from '../data';
 
 
 export const HouseContext = createContext();
 
 
+
+
+
+
 const HouseContextProvider = ({ children }) => {
-  const [houses, setHouses] = useState(RenthouseData);
+  // const [houses, setHouses] = useState(RenthouseData);
+  const [houses, setHouses] = useState([]);
   const [country, setCountry] = useState('Location (any)');
   const [countries, setCountries] = useState([]);
   const [property, setProperty] = useState('Property type (any)');
@@ -16,16 +23,33 @@ const HouseContextProvider = ({ children }) => {
   const [price, setPrice] = useState('Price range (any)');
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  // console.log(houses);
+
+
+  const fetchData=async()=>{
+    const response= await axios.get(`http://localhost:5000/post`);
+  
+    return response.data;
     
+  }
+  useEffect(async() => {
+    const getData = await fetchData()
+    setHouses(getData)
+    // console.log(houses);
+  }, [])
+  
+
+  useEffect( () => {
     const allCountries = houses.map((house) => {
       return house.country;
+
     });
 
    
     const uniqueCountries = ['Location (any)', ...new Set(allCountries)];
 
      setCountries(uniqueCountries);
+     console.log(countries);
   }, []);
 
   useEffect(() => {
@@ -51,7 +75,7 @@ const HouseContextProvider = ({ children }) => {
   
     const maxPrice = parseInt(price.split(' ')[2]);
 
-    const newHouses = RenthouseData.filter((house) => {
+    const newHouses = houses.filter((house) => {
       const housePrice = parseInt(house.price);
      
       if (
