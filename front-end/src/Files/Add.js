@@ -63,7 +63,7 @@ const Add = (e) => {
   };
   return (
     <form   
-      class="min-h-[180px] bg-gradient-to-br from-green-400 to-blue-600"
+      class="min-h-[180px] bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 " 
       method="post"
     >
       <ToastContainer position="top-center"/>
@@ -102,7 +102,7 @@ const Add = (e) => {
 
       
         <div
-          class="grid gap-6 mt-10 md:grid-cols-2 bg-gradient-to-br from-green-400 to-blue-600"
+          class="grid gap-6 mt-10 md:grid-cols-2 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500"
           
         >
           <legend class="sr-only">Countries</legend>
@@ -195,7 +195,7 @@ const Add = (e) => {
               Bathroom's
             </label>
             <input
-              type="tel"
+              type="number"
               id="bathrooms"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="##"
