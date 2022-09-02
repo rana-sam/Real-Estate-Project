@@ -47,7 +47,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="login bg-cyan-200">
+    <div className="login bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 rounded-lg">
       <ToastContainer position="top-center"/>
       <div>
         <h1 className="pt-4 text-blue-600 text-center text-5xl font-bold mb-10">Sign Up</h1>
