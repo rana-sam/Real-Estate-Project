@@ -1,6 +1,6 @@
 import React ,{ useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../App.css"
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,16 +9,11 @@ const Login = () =>
 {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-
-
-
+  const navigate = useNavigate();
   
-
-
-
   const logIn=async(e)=>{
     e.preventDefault();
-    // const Navigate = useNavigate();
+    
     if (!email)  {
         toast.error("Please Provide Email");
       }
@@ -35,7 +30,14 @@ const Login = () =>
           console.log(response.status);
          if (response.status===200) {
             toast.success("Successfully login")
-            // Navigate("./Home.js")
+
+            setTimeout(() => {
+              navigate("/")
+            }, "2000")
+            
+
+
+
 
           }
         else if (response.status===202) {
@@ -87,7 +89,7 @@ const Login = () =>
           
           
           <center>
-            <button  className="bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg">
+            <button className="bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-violet-800 transition w-100 pl-5 pr-5 lg:max-w-[100px] h-12 rounded-lg mb-5 flex items-center	align-items-center justify-center items-center text-white text-lg">
               Log In
             </button>
             

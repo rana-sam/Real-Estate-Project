@@ -36,6 +36,9 @@ import Agent12 from './images/agents/agent12.jpg';
 
 
 
+
+
+
 export const RenthouseData = [
   {
     id: 5,
