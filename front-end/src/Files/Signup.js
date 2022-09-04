@@ -12,7 +12,10 @@ export default function Signup() {
   const [phone, setPhone] = useState(Number);
 
   const SignUp = async (e) => {
+
+    
     e.preventDefault();
+    
     if (!fname || !lname || !email || !password || !phone) {
       toast.error("Please Provide All Value");
     } else if (!email.includes("@")) {
@@ -27,6 +30,8 @@ export default function Signup() {
         email,
         phone,
       };
+      
+      
       try {
 
         const response=await axios.post(`http://localhost:5000/register`, data);
@@ -44,6 +49,7 @@ export default function Signup() {
         console.log(e);
       }
     }
+    
   };
 
   return (
@@ -103,7 +109,7 @@ export default function Signup() {
             </div>
             <div>
               <input
-                type="string"
+                type="number"
                 name="phone"
                 id=""
                 className="bg-slate-200 px-2 pr-20 w-200 h-10 my-2 rounded-lg flex justify-center items-center text-black text-lg"

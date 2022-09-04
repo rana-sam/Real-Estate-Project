@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const multer=require("multer")
 const cors = require('cors');
 const User = require('./model/userModel');
 const Property = require('./model/propertyModel');
@@ -7,6 +8,16 @@ module.exports= User;
 module.exports= Property;
 router.use(cors());
 
+
+// const storage=multer.diskStorage({
+//     destination:(req,file,callback)=>{
+//         callback(null,"../front-end/src/images/upload/")
+//     },
+//     filename:(req,file,callback)=>{
+//         callback(null,file.originalname)
+//     }
+// })
+// const upload=multer({storage:storage})
 
 router.get('/post', (req, res) => {
     Property.find()
@@ -66,9 +77,10 @@ router.post('/login',async(req, res) =>{
         
 });
 
-router.post('/add',async(req,res)=>{
+router.post('/add' , async(req,res)=>{
+    // const image=req.file;
     const{
-        image,
+       image,
         type,
         country,
         address,
@@ -86,7 +98,7 @@ router.post('/add',async(req,res)=>{
             country,
             address,
             bedrooms,
-            bathrooms,
+            bathrooms, 
             area,
             price,
             contact

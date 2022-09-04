@@ -43,19 +43,19 @@ const HouseContextProvider = ({ children }) => {
     const allCountries = houses.map((house) => {
       return house.country;
 
-    });
+    },[]);
 
    
     const uniqueCountries = ['Location (any)', ...new Set(allCountries)];
 
      setCountries(uniqueCountries);
-     console.log(countries);
+    //  console.log(countries);
   }, []);
 
   useEffect(() => {
     const allProperties = houses.map((house) => {
       return house.type;
-    });
+    },[]);
 
     const uniqueProperties = ['Property type (any)', ...new Set(allProperties)];
 
