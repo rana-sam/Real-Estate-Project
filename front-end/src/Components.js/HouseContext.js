@@ -27,7 +27,7 @@ const HouseContextProvider = ({ children }) => {
 
 
   const fetchData=async()=>{
-    const response= await axios.get(`http://localhost:5000/post`);
+    const response= await axios.get(`http://localhost:5000/fetch`);
   
     return response.data;
     
@@ -51,7 +51,7 @@ const HouseContextProvider = ({ children }) => {
      setCountries(uniqueCountries);
     //  console.log(countries);
   }, []);
-
+ 
   useEffect(() => {
     const allProperties = houses.map((house) => {
       return house.type;

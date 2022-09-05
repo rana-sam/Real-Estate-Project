@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../App.css"
+import { uid } from 'uid';
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -10,6 +12,10 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState(Number);
+  const [id, setid] = useState("");
+
+  const navigate = useNavigate();
+  
 
   const SignUp = async (e) => {
 
@@ -23,7 +29,9 @@ export default function Signup() {
       
     }
     else {
+      // setuserId(uid)
       const data = {
+        id,
         fname,
         lname,
         password,
@@ -44,6 +52,9 @@ export default function Signup() {
        }
        else{
         toast.success("Sucessfully Sign Up")
+        setTimeout(() => {
+          navigate("/home",{state:{id},replace: true})
+        }, "2000")
        }
       } catch (e) {
         console.log(e);

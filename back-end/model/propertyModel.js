@@ -42,6 +42,9 @@ const PropertySchema = new  Schema({
     type:{
         type: String,
         required: true
+    },
+    id:{
+        type:String
     }
 
 });

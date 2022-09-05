@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { useHistory, withRouter } from 'react-router-dom'
+import { useNavigate ,useLocation} from 'react-router-dom'
+import logo from '../images/logo.webp'
 import axios from "axios";
+// import {userId} from './Login'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const Add = (e) => {
+const Add = () => {
   const [image, setimage] = useState("");
   const [type, settype] = useState("");
+  // const [userId, setuserId] = useState("");
   const [country, setcountry] = useState("");
   const [address, setaddress] = useState("");
   const [bedrooms, setbedrooms] = useState("");
@@ -14,32 +17,16 @@ const Add = (e) => {
   const [price, setprice] = useState(Number);
   const [contact, setcontact] = useState(Number);
   
-
-//   const imagehandler = (e) => {
-//     if (e.target.files && e.target.files[0]) {
-//         let img = e.target.files[0]
-//         setimage(img)e
-//     }
-// }
+  const navigate = useNavigate();
+  const location=useLocation();
+  
 
   const AddProperty = async (e) => {
     e.preventDefault();
-    
-    // const formData=new FormData();
-    // formData.append("image", image);
-    // formData.append("type", type);
-    // formData.append("country", country);
-    // formData.append("address", address);
-    // formData.append("bedrooms", bedrooms);
-    // formData.append("bathrooms",bathrooms);
-    // formData.append("contact",contact);
-    // formData.append("area",area);
-    // formData.append("price",price);
+    const id=location.state
+    console.log(id);
 
 
-// console.log(formData);
-    // console.log(image);
-    // setimage(image)
     if (
       !image ||
       !type ||
@@ -52,10 +39,12 @@ const Add = (e) => {
       !contact
     ) {
       toast.error("Please Provide All Value");
-      console.log(image);
+      // console.log(location.state);
     }
      else {
+
       const propertyDetail = {
+        id,
         image,
         type,
         country,
@@ -72,7 +61,7 @@ const Add = (e) => {
         const response = await axios.post(`http://localhost:5000/add`,propertyDetail );
         if (response.status === 200) {
           toast.success("Successfully Stored");
-          // history.push('/')
+          navigate("/home",{state:{id}})
         } else if (response.status === 400) {
           toast.error("Failed To stored");
         }
@@ -98,8 +87,19 @@ const Add = (e) => {
       method="post"
       encType="multipart/formd-ata"
     >
+        <div className='flex flex-col lg:flex-row'>
+        <div className='lg:ml-8 xl:ml-[135px] flex flex-col items-center lg:items-start text-center lg:text-left justify-center flex-1 px-4 lg:px-0'>
+          
+          <h1 className='text-4xl lg:text-[58px] font-semibold leading-none mb-4'>
+          Real Estate <span className='text-green-700 break-words'>Post </span>
+          </h1>
+          <h1 className='text-4xl mb-4'>Add Your Post Here...!</h1>
+        </div>
+       
+      </div>
+     
       <ToastContainer position="top-center" />
-      <div className="form-group">
+      <div className="form-group mt-6">
         <label htmlFor="inputId">Profile Picture</label>
         <input
           required
